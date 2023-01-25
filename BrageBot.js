@@ -1,10 +1,14 @@
-const Discord = require("discord.js");
-const bot = new Discord.Client({intents: Discord.Intents.ALL});
+const Discord = require('discord.js');
+const client = new Discord.Client();
 
-let wordCount = {};
-
-bot.on("ready", () => {
-    console.log(Logged in as ${bot.user.username});
+client.on('ready', () => {
+    console.log(`Logged in as ${client.user.tag}!`);
 });
 
-bot.login("bot token her");
+client.on('message', msg => {
+    if (msg.content === '!hello') {
+        msg.reply(`Hello, my name is ${client.user.tag}!`);
+    }
+});
+
+client.login('your_token_here');
